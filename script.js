@@ -108,52 +108,6 @@ function getCombinedTable(table1, table2, table3) {
   filterRecipes(combinedTable);
 }
 
-/* function filterByLabel(data) {
-  let regexLabel = new RegExp(data.join("|"), "i");
-  console.log(regexLabel);
-
-  let filteredRecipes = localRecipes.filter(recipe => {
-    const matchedIngredients = recipe.ingredients.filter(ingredient => {
-      return ingredient.ingredient.match(regexLabel);
-    });
-
-    return (
-      recipe.name.match(regexLabel) ||
-      recipe.appliance.match(regexLabel) ||
-      recipe.ustensils.some(ustensil => ustensil.match(regexLabel)) ||
-      matchedIngredients.length > 0
-    );
-  });
-
-  if (filteredRecipes.length === 0) {
-    recipesCounter.textContent = "0 recettes";
-  }
-
-  filterRecipes(filteredRecipes);
-} */
-
-/*   for (var i = 0; i < localRecipes.length; i++) {
- 
-    if (localRecipes[i].ingredient.ingredient.match(regexLabel)){
-      filteredRecipes = localRecipes[i]
-    }else {
-      filteredRecipes = localRecipes
-    }
- 
-    if (localRecipes[i].appliance.match(regexLabel)){
-      filteredRecipes = localRecipes[i]
-    }else {
-      filteredRecipes = localRecipes
-    }
- 
-    if (localRecipes[i].ustensils.match(regexLabel)){
-      filteredRecipes = localRecipes[i]
-    }else {
-      filteredRecipes = localRecipes
-    }
- 
-  } */
-
 
 
 

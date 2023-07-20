@@ -66,7 +66,6 @@ header div h1 {
     border-radius: 6px;
     width: 45px;
     height: 45px;
-    margin-left: -53px;
     margin-top: 6px;
 }
 
@@ -273,6 +272,16 @@ header div h1 {
     margin-left: -1.2em;
     cursor: pointer;
     color: #c7c5c5;
+}
+
+.clear-icon-main {
+    margin-left: -3.7em;
+    cursor: pointer;
+    font-size: 22px;
+    align-self: center;
+    color: #7A7A7A;
+    margin-right: 0.5em;
+    visibility: hidden;
 }
 
 .input_bubbles{
