@@ -3,9 +3,12 @@ const searchField = document.querySelector('input');
 import { filterIngLabels } from './ingredients.js';
 import { filterUstLabels } from './ustensils.js';
 import { filterAppLabels } from './appliances.js';
+import { filterRecipes } from './script.js';
 /* import { filterLabels } from './labels.js'; */
 
-searchField.addEventListener('keyup', function () {
+searchField.addEventListener('keyup', function(){findAllMatchingRecipes()});
+
+export function findAllMatchingRecipes() {
   crossDisplay()
   if (searchField.value.length >= 3) {
     let regex = new RegExp(searchField.value, 'gmi');
@@ -23,22 +26,46 @@ searchField.addEventListener('keyup', function () {
     if (filteredRecipes.length === 0) {
       recipesCounter.textContent = "0 recettes";
     }
+    console.log(combinedTable)
+    if (combinedTable.length === 0){
+      combinedTable = localRecipes
+    }
+    let resultAll = findCommonMatchingIds(filteredRecipes,combinedTable)
+    console.log(filteredRecipes)
+    console.log(combinedTable)
+    console.log(resultAll)
 
-    filterRecipes(filteredRecipes);
-    filterIngLabels(filteredRecipes);
-    filterUstLabels(filteredRecipes);
-    filterAppLabels(filteredRecipes);
+    filterRecipes(resultAll);
+    filterIngLabels(resultAll);
+    filterUstLabels(resultAll);
+    filterAppLabels(resultAll);
 /*     filterLabels(filteredRecipes); */
   } else {
-    filterRecipes(localRecipes);
-    filterIngLabels(localRecipes);
-    filterUstLabels(localRecipes);
-    filterAppLabels(localRecipes);
+    filterRecipes(combinedTable);
+    filterIngLabels(combinedTable);
+    filterUstLabels(combinedTable);
+    filterAppLabels(combinedTable);
 /*     filterLabels(localRecipes); */
   }
-});
+};
 
 filterRecipes(localRecipes)
+
+function findCommonMatchingIds(table1, table2) {
+  const result = [];
+
+  // Create a set of IDs from table2 for faster lookup
+  const table2Ids = new Set(table2.map((item) => item.id));
+
+  // Iterate through table1 and check for matching IDs in table2
+  for (const item of table1) {
+    if (table2Ids.has(item.id)) {
+      result.push(item);
+    }
+  }
+
+  return result;
+}
 
 function crossDisplay(){
   if (searchField.value.length > 0) {
@@ -56,7 +83,7 @@ const mainResArea = document.getElementById("mainRes")
 crossClearMain.addEventListener("click", function () {
 mainResArea.value = "";
 crossDisplay()
-filterRecipes(localRecipes);
+filterRecipes(combinedTable);
 filterIngLabels(localRecipes);
 filterUstLabels(localRecipes);
 filterAppLabels(localRecipes);

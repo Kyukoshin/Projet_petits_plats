@@ -1,16 +1,18 @@
 // Filtre bulle ustensiles
 
 import { recipes } from "./recipes.js";
+import { selectFilter } from './script.js';
+import { udapteFilter } from './script.js';
 
 let filterButtonUst = document.getElementById("ustensilsFilter");
-let filterMenuUst = document.getElementById("ustensilsFilterList");
+let filterMenuUst = document.getElementById("UstFilterList");
 
 filterButtonUst.addEventListener("click", function () {
   filterMenuUst.classList.toggle("show");
 
   console.log(filterMenuUst.classList.toggle("show"))
 
-  let arrowUst = document.getElementById("arrow_ust");
+  let arrowUst = document.getElementById("arrow_Ust");
   if (filterMenuUst.classList.toggle("show")) {
     arrowUst.classList.replace("fa-angle-down", "fa-angle-up");
   } else {
@@ -59,7 +61,7 @@ crossResearchClearUst.addEventListener("click", function () {
 
 function displayFilterUstensils(data) {
 
-  let anchorUstensils = document.getElementById("ustensilsAnchor");
+  let anchorUstensils = document.getElementById("UstAnchor");
   anchorUstensils.innerHTML = "";
 
   data.forEach(item => {
@@ -73,7 +75,7 @@ function displayFilterUstensils(data) {
 
       console.log(filterMenuUst.classList.toggle("show"))
 
-      let arrowUst = document.getElementById("arrow_ust");
+      let arrowUst = document.getElementById("arrow_Ust");
       if (filterMenuUst.classList.toggle("show")) {
         arrowUst.classList.replace("fa-angle-down", "fa-angle-up");
       } else {

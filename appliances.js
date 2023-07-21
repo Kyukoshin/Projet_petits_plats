@@ -1,16 +1,18 @@
 // Filtre bulle appareils
 
 import { recipes } from "./recipes.js";
+import { selectFilter } from './script.js';
+import { udapteFilter } from './script.js';
 
 let filterButtonApp = document.getElementById("appliancesFilter");
-let filterMenuApp = document.getElementById("appliancesFilterList");
+let filterMenuApp = document.getElementById("AppFilterList");
 
 filterButtonApp.addEventListener("click", function () {
   filterMenuApp.classList.toggle("show");
 
   console.log(filterMenuApp.classList.toggle("show"))
 
-  let arrowApp = document.getElementById("arrow_app");
+  let arrowApp = document.getElementById("arrow_App");
   if (filterMenuApp.classList.toggle("show")) {
     arrowApp.classList.replace("fa-angle-down", "fa-angle-up");
   } else {
@@ -58,7 +60,7 @@ crossResearchClearApp.addEventListener("click", function () {
 
 function displayFilterAppliances(data) {
 
-  let anchorAppliances = document.getElementById("appliancesAnchor");
+  let anchorAppliances = document.getElementById("AppAnchor");
   anchorAppliances.innerHTML = "";
 
   data.forEach(item => {
@@ -72,7 +74,7 @@ function displayFilterAppliances(data) {
 
       console.log(filterMenuApp.classList.toggle("show"))
 
-      let arrowApp = document.getElementById("arrow_app");
+      let arrowApp = document.getElementById("arrow_App");
       if (filterMenuApp.classList.toggle("show")) {
         arrowApp.classList.replace("fa-angle-down", "fa-angle-up");
       } else {

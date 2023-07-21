@@ -1,16 +1,18 @@
 //Filtre bulle ingrédients
 
 import { recipes } from "./recipes.js";
+import { selectFilter } from './script.js';
+import { udapteFilter } from './script.js';
 
 let filterButtonIng = document.getElementById("ingredientsFilter");
-let filterMenuIng = document.getElementById("ingredientsFilterList");
+let filterMenuIng = document.getElementById("IngFilterList");
 
 filterButtonIng.addEventListener("click", function () {
   filterMenuIng.classList.toggle("show")
 
   console.log(filterMenuIng.classList.toggle("show"))
 
-  let arrowIng = document.getElementById("arrow_ing");
+  let arrowIng = document.getElementById("arrow_Ing");
   if (filterMenuIng.classList.toggle("show")) {
     arrowIng.classList.replace("fa-angle-down", "fa-angle-up");
   } else {
@@ -60,7 +62,7 @@ crossResearchClearIng.addEventListener("click", function () {
 
 function displayFilterItems(data) {
 
-  let anchorIngredients = document.getElementById("ingredientAnchor");
+  let anchorIngredients = document.getElementById("IngAnchor");
   anchorIngredients.innerHTML = "";
 
   data.forEach(item => {
@@ -74,7 +76,7 @@ function displayFilterItems(data) {
 
       console.log(filterMenuIng.classList.toggle("show"))
 
-      let arrowIng = document.getElementById("arrow_ing");
+      let arrowIng = document.getElementById("arrow_Ing");
       if (filterMenuIng.classList.toggle("show")) {
         arrowIng.classList.replace("fa-angle-down", "fa-angle-up");
       } else {
