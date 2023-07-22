@@ -43,7 +43,7 @@ export function selectFilter(data, filterType) {
   filterLabelAnchor.appendChild(labelItem);
 }
 
-export function udapteFilter(filterValue, filterType) {
+export function updateFilter(filterValue, filterType) {
   labelsTable[filterType].push(filterValue)
 
   console.log(labelsTable)
@@ -62,7 +62,7 @@ export function removeFilter(data, filterType) {
 export function filterByLabel(filter) {
   let filteredIngredients = localRecipes.filter(recipe => {
     // Check if all filter values are contained in the ingredients' "ingredient" property
-    return filter.ingredient.every(filterValue => {
+    return filter.Ing.every(filterValue => {
       return recipe.ingredients.some(ingredient => {
         return ingredient.ingredient.toLowerCase().includes(filterValue.toLowerCase());
       });
@@ -71,7 +71,7 @@ export function filterByLabel(filter) {
 
   //console.log(filteredIngredients);
 
-  let filteredAppliances = localRecipes.filter(recipe => recipe.appliance === filter.appliance[0]);
+  let filteredAppliances = localRecipes.filter(recipe => recipe.appliance === filter.App[0]);
   if (filteredAppliances.length === 0) {
     filteredAppliances = localRecipes
   }
@@ -79,7 +79,7 @@ export function filterByLabel(filter) {
   //console.log(filteredAppliances);
 
   let filteredUstensils = localRecipes.filter(recipe =>
-    filter.ustensil.every(
+    filter.Ust.every(
       filterValue => recipe.ustensils.some( ustensil =>
         ustensil.toLowerCase().includes(filterValue.toLowerCase())
       )

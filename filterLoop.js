@@ -1,12 +1,11 @@
 const searchField = document.querySelector('input');
 
-import { filterIngLabels } from './ingredients.js';
-import { filterUstLabels } from './ustensils.js';
-import { filterAppLabels } from './appliances.js';
+import { filterIngLabels } from './labels.js';
+import { filterUstLabels } from './labels.js';
+import { filterAppLabels } from './labels.js';
 import { filterRecipes } from './script.js';
-/* import { filterLabels } from './labels.js'; */
 
-searchField.addEventListener('keyup', function(){findAllMatchingRecipes()});
+searchField.addEventListener('keyup', function () { findAllMatchingRecipes() });
 
 export function findAllMatchingRecipes() {
   crossDisplay()
@@ -26,26 +25,23 @@ export function findAllMatchingRecipes() {
     if (filteredRecipes.length === 0) {
       recipesCounter.textContent = "0 recettes";
     }
-    console.log(combinedTable)
-    if (combinedTable.length === 0){
+
+    if (combinedTable.length === 0) {
       combinedTable = localRecipes
     }
-    let resultAll = findCommonMatchingIds(filteredRecipes,combinedTable)
-    console.log(filteredRecipes)
-    console.log(combinedTable)
-    console.log(resultAll)
+    let resultAll = findCommonMatchingIds(filteredRecipes, combinedTable)
 
     filterRecipes(resultAll);
     filterIngLabels(resultAll);
     filterUstLabels(resultAll);
     filterAppLabels(resultAll);
-/*     filterLabels(filteredRecipes); */
+    /*     filterLabels(filteredRecipes); */
   } else {
     filterRecipes(combinedTable);
     filterIngLabels(combinedTable);
     filterUstLabels(combinedTable);
     filterAppLabels(combinedTable);
-/*     filterLabels(localRecipes); */
+    /*     filterLabels(localRecipes); */
   }
 };
 
@@ -67,7 +63,7 @@ function findCommonMatchingIds(table1, table2) {
   return result;
 }
 
-function crossDisplay(){
+function crossDisplay() {
   if (searchField.value.length > 0) {
     let crossClearMain = document.getElementById("clear_main")
     crossClearMain.style.visibility = "visible"
@@ -81,10 +77,10 @@ function crossDisplay(){
 const crossClearMain = document.getElementById("clear_main")
 const mainResArea = document.getElementById("mainRes")
 crossClearMain.addEventListener("click", function () {
-mainResArea.value = "";
-crossDisplay()
-filterRecipes(combinedTable);
-filterIngLabels(localRecipes);
-filterUstLabels(localRecipes);
-filterAppLabels(localRecipes);
+  mainResArea.value = "";
+  crossDisplay()
+  filterRecipes(combinedTable);
+  filterIngLabels(localRecipes);
+  filterUstLabels(localRecipes);
+  filterAppLabels(localRecipes);
 });
